@@ -7,12 +7,6 @@ so I am creating this library which does that and helps me find the match.
 ## Motivation: 2
 getting my hands dirty at *elixir-lang*
 
-## TODO
-[] scrap imdb's watchlist
-[] get movies details
-[] search movies on [YTS API](https://yts.am/api)
-[] display matches
-
 ## Installation
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 by adding `moviematch` to your list of dependencies in `mix.exs`:
