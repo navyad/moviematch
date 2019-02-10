@@ -20,7 +20,7 @@ defmodule MOVIEMATCH do
     |> elem(1)
   end   
 
-  def build_map(script_str) do
+  def replace(script_str) do
     script_str
     |> String.trim()
     |> String.replace("IMDbReactInitialState.push(", "")
@@ -30,6 +30,10 @@ defmodule MOVIEMATCH do
     |> String.replace("\'", "111")
     |> String.replace(")", "")
     |> String.replace("'", "\"")
+  end   
+
+  def imdb_movies(json_str) do
+   json_str 
     |> Poison.decode!
   end  
 end
