@@ -32,8 +32,8 @@ defmodule MOVIEMATCH do
     |> String.replace("'", "\"")
   end   
 
-  def imdb_movies(json_str) do
-   json_str 
-    |> Poison.decode!
+  def movie_titles(json_str) do
+    map = Poison.decode!(json_str) |> Map.get("titles")
+    Enum.map(map, fn {k, v} -> Map.get(v, "primary") |> Map.get("title")  end)
   end  
 end
