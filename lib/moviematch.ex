@@ -37,7 +37,8 @@ defmodule MOVIEMATCH do
   end
 
   def movie_titles(map) do
-    map = map |> Map.get("titles")
-    Enum.map(map, fn {k, v} -> Map.get(v, "primary") |> Map.get("title")  end)
+    map 
+    |> Map.get("titles")
+    |> Enum.map(fn {k, %{"primary" => %{"title" => v}}} -> %{k=> v} end)
   end  
 end
