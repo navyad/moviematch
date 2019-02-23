@@ -36,9 +36,14 @@ defmodule MOVIEMATCH do
     Poison.decode!(json_str)
   end
 
-  def movie_titles(map) do
-    map 
-    |> Map.get("titles")
-    |> Enum.map(fn {k, %{"primary" => %{"title" => v}}} -> %{k=> v} end)
+  defp id_title({k, v}) do
+    with {:ok, primary} = Map.fetch(v, "primary"),
+         {:ok, movie_title} = Map.fetch(primary, "title"),
+         do: %{k=> movie_title} 
+  end  
+
+  def movie_id_titles(map) do
+    {:ok, movie_ids} = Map.fetch(map, "titles")
+    Enum.map(movie_ids, &id_title/1)
   end  
 end
