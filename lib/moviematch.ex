@@ -1,5 +1,10 @@
 defmodule MOVIEMATCH do
 
+  def build_url(imdb_user_id) do
+    url_parts = ["https:", "", "www.imdb.com", "user", imdb_user_id, "watchlist"]
+    Enum.join(url_parts, "/")
+  end  
+
   def fetch_imdb_watchlist(url) do
     HTTPoison.get(url)
   end
