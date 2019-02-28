@@ -51,4 +51,10 @@ defmodule MOVIEMATCH do
     {:ok, movie_ids} = Map.fetch(map, "titles")
     Enum.map(movie_ids, &id_title/1)
   end  
+
+  def request_yts(movie_id) do
+    url = "https://yts.am/api/v2/list_movies.json?"
+    response = HTTPoison.get!(url, [], params: %{query_term: movie_id})
+    Poison.decode!(response.body)
+  end  
 end
