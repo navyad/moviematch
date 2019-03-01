@@ -1,16 +1,17 @@
 defmodule  IMDB do
 
-  def build_url(imdb_user_id) do
+  defp build_url(imdb_user_id) do
     url_parts = ["https:", "", "www.imdb.com", "user", imdb_user_id, "watchlist"]
     Enum.join(url_parts, "/")
   end  
 
-  def fetch_imdb_watchlist(url) do
-    HTTPoison.get(url)
+  defp make_request(url) do
+    {:ok, response} = HTTPoison.get(url)
+    response
   end
 
-  def parse_html(body) do
-    body
+  defp parse_html(response) do
+    response.body
     |> Floki.find(".ab_widget")
     |> Enum.fetch(0)
     |> elem(1)
@@ -25,7 +26,7 @@ defmodule  IMDB do
     |> elem(1)
   end   
 
-  def replace(script_str) do
+  defp build_json(script_str) do
     script_str
     |> String.trim()
     |> String.replace("IMDbReactInitialState.push(", "")
@@ -35,11 +36,8 @@ defmodule  IMDB do
     |> String.replace("\'", "111")
     |> String.replace(")", "")
     |> String.replace("'", "\"")
+    |> Poison.decode!()
   end   
-
-  def movie_map(json_str) do
-    Poison.decode!(json_str)
-  end
 
   defp id_title({k, v}) do
     with {:ok, primary} = Map.fetch(v, "primary"),
@@ -47,14 +45,17 @@ defmodule  IMDB do
          do: %{k => movie_title} 
   end  
 
-  def movie_id_titles(map) when is_map(map) do
+  defp movie_id_titles(map) when is_map(map) do
     {:ok, movie_ids} = Map.fetch(map, "titles")
     Enum.map(movie_ids, &id_title/1)
   end  
 
-  def request_yts(movie_id) do
-    url = "https://yts.am/api/v2/list_movies.json?"
-    response = HTTPoison.get!(url, [], params: %{query_term: movie_id})
-    Poison.decode!(response.body)
+  def fetch_imdb_watchlist(imdb_user_id) do
+   imdb_user_id
+    |> build_url()
+    |> make_request()
+    |> parse_html()
+    |> build_json()
+    |> movie_id_titles()
   end  
-end
+ end
