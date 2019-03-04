@@ -42,12 +42,13 @@ defmodule  IMDB do
   defp id_title({k, v}) do
     with {:ok, primary} = Map.fetch(v, "primary"),
          {:ok, movie_title} = Map.fetch(primary, "title"),
-         do: %{k => movie_title} 
+         do: %{id: k, title: movie_title} 
   end  
 
   defp movie_id_titles(map) when is_map(map) do
     {:ok, movie_ids} = Map.fetch(map, "titles")
-    Enum.map(movie_ids, &id_title/1)
+    items = Enum.map(movie_ids, &id_title/1)
+    Enum.reduce(items, %{}, fn e, acc -> Map.put(acc, e.id, e.title) end)
   end  
 
   def fetch_imdb_watchlist(imdb_user_id) do
