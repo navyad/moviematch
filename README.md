@@ -31,7 +31,7 @@ results
   "tt8359848" => "Climax"
 }
 ```
-2. Match movies with YTS [WIP]
+2. Match movies with YTS
 ```
  MOVIEMATCH.match_movies("ur26610840")
  ```
