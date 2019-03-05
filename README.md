@@ -32,3 +32,29 @@ results
 }
 ```
 2. Match movies with YTS [WIP]
+```
+ MOVIEMATCH.match_movies("ur26610840")
+ ```
+ results
+ ```
+ [
+  %{id: "tt1034415", is_found: true, title: "Suspiria"},
+  %{id: "tt1502407", is_found: true, title: "Halloween"},
+  %{id: "tt3986820", is_found: true, title: "The Endless"},
+  %{id: "tt4003440", is_found: true, title: "The House That Jack Built"},
+  %{id: "tt4015500", is_found: false, title: "The Tale"},
+  %{id: "tt4645368", is_found: false, title: "Juste la fin du monde"},
+  %{id: "tt5116410", is_found: false, title: "Tower"},
+  %{id: "tt5160938", is_found: true, title: "Lizzie"},
+  %{id: "tt5516328", is_found: true, title: "Ghost Stories"},
+  %{id: "tt5607096", is_found: true, title: "Juliet, Naked"},
+  %{id: "tt5886440", is_found: true, title: "Marrowbone"},
+  %{id: "tt5989218", is_found: true, title: "Life Itself"},
+  %{id: "tt6053438", is_found: true, title: "First Reformed"},
+  %{id: "tt6628394", is_found: true, title: "Bad Times at the El Royale"},
+  %{id: "tt6823368", is_found: false, title: "Glass"},
+  %{id: "tt6998518", is_found: true, title: "Mandy"},
+  %{id: "tt7349950", is_found: false, title: "It: Chapter Two"},
+  %{id: "tt8359848", is_found: true, title: "Climax"}
+]
+```
