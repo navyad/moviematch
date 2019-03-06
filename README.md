@@ -58,3 +58,6 @@ results
   %{id: "tt8359848", is_found: true, title: "Climax"}
 ]
 ```
+
+### Contributing
+If you would have an interesting idea how to improve the operation of this tool, or if you found some errors - fork this, add your fixes, and add a pull request of your branch to the master branch.
