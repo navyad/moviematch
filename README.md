@@ -8,7 +8,7 @@ So creating this tiny library which automate that !!
 
 
 ### Usage
-1. User's IMDB's watchlist movies. Need to pass IMDB's use_id.
+1. Get IMDB's watchlist movies of user having user_id as ```ur26610840```.
 ```
 iex(1)> IMDB.fetch_imdb_watchlist("ur26610840")
 ```
