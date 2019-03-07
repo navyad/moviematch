@@ -1,5 +1,6 @@
 defmodule MOVIEMATCH do
   import IMDB
+  @yts_url Application.get_env(:moviematch, :yts_url) 
 
   defp is_movie?(yts_response) do
     {:ok, data} = Map.fetch(yts_response, "data")
@@ -11,8 +12,7 @@ defmodule MOVIEMATCH do
   end   
 
  defp request_yts(movie_id) do
-    url = "https://yts.am/api/v2/list_movies.json?"
-    response = HTTPoison.get!(url, [], params: %{query_term: movie_id})
+    response = HTTPoison.get!(@yts_url, [], params: %{query_term: movie_id})
     Poison.decode!(response.body)
   end  
 

@@ -1,8 +1,9 @@
 defmodule  IMDB do
 
-  defp build_url(imdb_user_id) do
-    url_parts = ["https:", "", "www.imdb.com", "user", imdb_user_id, "watchlist"]
-    Enum.join(url_parts, "/")
+  @imdb_url Application.get_env(:moviematch, :imdb_url) 
+
+  def build_url(imdb_user_id) do
+    String.replace(@imdb_url, "imdb_user_id", imdb_user_id)
   end  
 
   defp make_request(url) do
