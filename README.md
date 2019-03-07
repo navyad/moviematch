@@ -3,6 +3,10 @@
 I maintain IMDB watchlist and have repeatedly check yts if movies are available or not, which is mundane activity and time-consuming, yeah I am a bit lazy to do that.
 So creating this tiny library which automate that !!
 
+### Prerequisites
+elixir > 1.7.3
+
+
 ### Usage
 1. User's IMDB's watchlist movies. Need to pass IMDB's use_id.
 ```
@@ -33,7 +37,7 @@ results
 ```
 2. Match movies with YTS
 ```
- MOVIEMATCH.match_movies("ur26610840")
+ iex(2)> MOVIEMATCH.match_movies("ur26610840")
  ```
  results
  ```
