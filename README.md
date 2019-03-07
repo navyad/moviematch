@@ -4,7 +4,7 @@ I maintain IMDB watchlist and have repeatedly check yts if movies are available 
 So creating this tiny library which automate that !!
 
 ### Prerequisites
-elixir > 1.7.3
+```elixir  v1.7+```
 
 
 ### Usage
