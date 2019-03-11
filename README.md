@@ -1,4 +1,4 @@
-### MOVIEMATCH
+### MovieMatch
 
 I maintain IMDB watchlist and have repeatedly check yts if movies are available or not, which is mundane activity and time-consuming, yeah I am a bit lazy to do that.
 So creating this tiny library which automate that !!
@@ -10,7 +10,7 @@ So creating this tiny library which automate that !!
 ### Usage
 1. Get IMDB's watchlist movies of user having user_id as ```ur26610840```.
 ```
-iex(1)> IMDB.fetch_imdb_watchlist("ur26610840")
+iex(1)> MovieMatch.Imdb.fetch_imdb_watchlist("ur26610840")
 ```
 results
 ```
@@ -37,7 +37,7 @@ results
 ```
 2. Match movies with YTS
 ```
- iex(2)> MOVIEMATCH.match_movies("ur26610840")
+ iex(2)> MovieMatch.match_movies("ur26610840")
  ```
  results
  ```
