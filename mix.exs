@@ -1,4 +1,4 @@
-defmodule MOVIEMATCH.MixProject do
+defmodule MovieMatch.MixProject do
   use Mix.Project
 
   def project do
