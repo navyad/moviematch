@@ -1,6 +1,7 @@
 defmodule MovieMatch.Imdb do
 
-  @imdb_url Application.get_env(:moviematch, :imdb_url)
+  alias MovieMatch.{AppConfig}
+  @imdb_url AppConfig.imdb_url()
 
   def build_url(imdb_user_id) do
     String.replace(@imdb_url, "imdb_user_id", imdb_user_id)
