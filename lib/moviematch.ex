@@ -22,8 +22,9 @@ defmodule MovieMatch do
   end
 
   defp yts_movie({movie_id, title}) do
-    with response <- request_yts(movie_id),
-         is_found <- is_movie?(response),
+    with {:ok, response} <- MovieMatch.API.get(@yts_url, %{query_term: movie_id}),
+         {:success, json_response} <- MovieMatch.API.process_response(response),
+         is_found <- is_movie?(json_response),
          do: %{id: movie_id, title: title, is_found: is_found}
   end
 

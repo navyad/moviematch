@@ -8,7 +8,7 @@ defmodule MovieMatch.API do
     HTTPoison.get(url, [], params: params) 
   end  
 
-  def process_response({:ok, response}) do
+  def process_response(response) do
     status_code  = response.status_code
     cond do
       status_code == 200 ->
