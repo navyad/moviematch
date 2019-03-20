@@ -9,17 +9,7 @@ defmodule MovieMatch.Imdb do
     String.replace(@imdb_url, "imdb_user_id", imdb_user_id)
   end
 
-  defp make_request(url) do
-    # try using tesla library also, HTTPoison and HTTPotion has some limitations
-    #what if it's not :ok? try handling in case
-   Logger.info "imdb request: #{IO.inspect(url)}"
-    case HTTPoison.get(url) do
-      {:ok, response} -> response
-      {:error, msg} -> msg
-    end
-  end
-
-  defp parse_html(response) do
+  defp parse_html({:ok, response}) do
     Logger.info "parsing html..."
     response.body
     |> Floki.find(".ab_widget")
@@ -54,6 +44,8 @@ defmodule MovieMatch.Imdb do
     with {:ok, primary} = Map.fetch(v, "primary"),
          {:ok, movie_title} = Map.fetch(primary, "title"),
          do: %{id: k, title: movie_title}
+    else
+      err -> IO.inspect err
   end
 
   defp movie_id_titles(map) when is_map(map) do
@@ -70,7 +62,7 @@ defmodule MovieMatch.Imdb do
   def fetch_imdb_watchlist(imdb_user_id) do
    imdb_user_id
     |> build_url()
-    |> make_request()
+    |> MovieMatch.API.get()
     |> parse_html()
     |> build_json()
     |> movie_id_titles()
