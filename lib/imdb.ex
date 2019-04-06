@@ -4,14 +4,15 @@ defmodule MovieMatch.Imdb do
   alias MovieMatch.{AppConfig}
 
   @imdb_url AppConfig.imdb_url()
+  @compile if Mix.env == :test, do: :export_all
 
-  def build_url(imdb_user_id) do
+  defp build_url(imdb_user_id) do
     String.replace(@imdb_url, "imdb_user_id", imdb_user_id)
   end
 
-  defp parse_html({:ok, response}) do
+  defp parse_html(body) do
     Logger.info "parsing html..."
-    response.body
+    body
     |> Floki.find(".ab_widget")
     |> Enum.fetch(0)
     |> elem(1)
