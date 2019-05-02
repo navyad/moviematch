@@ -9,10 +9,7 @@ defmodule MovieMatch do
     Logger.info("checking yts response..")
     {:ok, data} = Map.fetch(yts_response, "data")
     {:ok, movie_count} = Map.fetch(data, "movie_count")
-    case do
-      movie_count == 1 -> true
-      movie_count == 0 -> false
-    end
+    movie_count > 0 
   end
 
   def yts_movie({movie_id, title}) do
