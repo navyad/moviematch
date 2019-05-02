@@ -1,9 +1,9 @@
 defmodule MovieMatch do
 
   require Logger
-  alias MovieMatch.{AppConfig, Imdb}
+  alias MovieMatch.{Imdb}
 
-  @yts_url AppConfig.yts_url()
+  @yts_url "https://yts.am/api/v2/list_movies.json" 
 
   defp is_movie?({:ok, yts_response}) do
     Logger.info("checking yts response..")

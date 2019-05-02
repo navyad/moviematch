@@ -1,9 +1,8 @@
 defmodule MovieMatch.Imdb do
 
   require Logger
-  alias MovieMatch.{AppConfig}
 
-  @imdb_url AppConfig.imdb_url()
+  @imdb_url "https://www.imdb.com/user/imdb_user_id/watchlist" 
   @compile if Mix.env == :test, do: :export_all
 
   defp build_url(imdb_user_id) do
