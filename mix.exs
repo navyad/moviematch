@@ -23,7 +23,8 @@ defmodule MovieMatch.MixProject do
     [
       {:httpoison, "~> 1.4"},
       {:floki, "~> 0.20.0"},
-      {:poison, "~> 3.1"}
+      {:poison, "~> 3.1"},
+      {:hackney, github: "benoitc/hackney", override: true}
     ]
   end
 end
