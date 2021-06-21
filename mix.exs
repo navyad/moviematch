@@ -9,6 +9,8 @@ defmodule MovieMatch.MixProject do
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       source_url: "https://github.com/navyad/moviematch",
+      description: description(),
+      package: package(),
     ]
   end
 
@@ -36,6 +38,7 @@ defmodule MovieMatch.MixProject do
       name: "moviematch",
       maintainers: ["Naveen Yadav"],
       links: %{"GitHub" => "https://github.com/navyad/moviematch"}
+      licenses: ["MIT"]
     ]
 end
 end
