@@ -65,3 +65,12 @@ results
 
 ### Contributing
 If you would have an interesting idea how to improve the operation of this tool, or if you found some errors - fork this, add your fixes, and add a pull request of your branch to the master branch.
+
+
+### License
+
+moviematch is released under the Apache License 2.0 - see the [LICENSE](LICENSE) file.
+
+Some elements of tests and benchmarks have their origins in the
+[moviematch library](https://github.com/navyad/moviematch) and were initially licensed under [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/).
+
