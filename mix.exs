@@ -29,7 +29,7 @@ defmodule MovieMatch.MixProject do
       {:httpoison, "~> 1.4"},
       {:floki, "~> 0.20.0"},
       {:poison, "~> 3.1"},
-      {:hackney, github: "benoitc/hackney", override: true}
+      {:hackney, github: "benoitc/hackney", override: true},
     ]
   end
 
@@ -37,8 +37,8 @@ defmodule MovieMatch.MixProject do
     [
       name: "moviematch",
       maintainers: ["Naveen Yadav"],
-      links: %{"GitHub" => "https://github.com/navyad/moviematch"}
-      licenses: ["MIT"]
+      links: %{"GitHub" => "https://github.com/navyad/moviematch"},
+      licenses: ["MIT"],
     ]
 end
 end
