@@ -26,8 +26,8 @@ defmodule MovieMatch.MixProject do
 
   defp deps do
     [
-      {:httpoison, "~> 1.4"},
-      {:floki, "~> 0.20.0"},
+      {:httpoison, "~> 1.8"},
+      {:floki, "~> 0.20.4"},
       {:poison, "~> 3.1"},
       {:hackney, github: "benoitc/hackney", override: true},
     ]

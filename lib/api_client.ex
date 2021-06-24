@@ -1,7 +1,7 @@
 defmodule MovieMatch.API do
 
-  def http_get(url, params) do
-    HTTPoison.get(url, [], params: params) 
+  def http_get(url) do
+    HTTPoison.get(url, [], follow_redirect: true) 
   end  
 
   def process_response(
@@ -19,9 +19,9 @@ defmodule MovieMatch.API do
       {:error, reason}  
   end
 
-  def get(url, params \\ Map.new()) do
+  def get(url) do
     url
-    |> http_get(params)
+    |> http_get()
     |> process_response()
   end  
 end 
