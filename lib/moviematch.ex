@@ -5,18 +5,18 @@ defmodule MovieMatch do
 
   @yts_url "https://yts.lt/api/v2/list_movies.json?query_term=movie_id"
 
-  defp yts_respone({:ok, response}) do
-    {:ok, data} = Map.fetch(response, "data")
-    Map.get(data, "movies")
+  defp yts_respone({:ok, response}, movie_id, title) do
+    movie_info = response
+      |> Map.get("data")
+      |> Map.get("movies")
+    %{id: movie_id, title: title, movie_info: movie_info}
   end
 
   def yts_request({movie_id, title}) do
     url = String.replace(@yts_url, "movie_id", movie_id)
-    Logger.info(url)
-    torrents = MovieMatch.API.get(url)
-               |> Poison.decode() 
-               |> yts_respone()
-     %{id: movie_id, title: title, torrents: torrents}
+    MovieMatch.API.get(url)
+    |> Poison.decode() 
+    |> yts_respone(movie_id, title)
   end
 
   defp check_movies_on_yts(map) when is_map(map) do
