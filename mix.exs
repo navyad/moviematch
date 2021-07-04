@@ -29,6 +29,7 @@ defmodule MovieMatch.MixProject do
       {:httpoison, "~> 1.8"},
       {:floki, "~> 0.20.4"},
       {:poison, "~> 3.1"},
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
     ]
   end
 
