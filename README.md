@@ -100,7 +100,7 @@ Movie information if movie found on YTS
     ],
 ```
 
-Movie information if movie found on YTS
+Movie information if movie not found on YTS
 ```
 %{id: "tt9639470", movie_info: nil, title: "Last Night in Soho"}
 ```
