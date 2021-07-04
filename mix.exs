@@ -21,7 +21,7 @@ defmodule MovieMatch.MixProject do
   end
 
   defp description() do
-    "Find torrent for movies listed in IMDb's watchlist"
+    "Find torrents for movies listed in IMDb's watchlist"
   end
 
   defp deps do
