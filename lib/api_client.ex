@@ -25,6 +25,10 @@ defmodule MovieMatch.API do
       body 
   end
 
+  def process_response({:ok, %HTTPoison.Response{status_code: 502}}) do
+      raise RequestError, "502 Bad Gateway"
+  end
+
   def process_response({:error, %HTTPoison.Error{reason: reason}}) do
       raise RequestError, {:error, reason}
   end
