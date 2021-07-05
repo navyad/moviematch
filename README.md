@@ -6,6 +6,16 @@ So creating this tiny library which automate that !!
 ### Prerequisites
 ```elixir  v1.12.1```
 
+### Installation
+the package can be installed by adding `moviematch` to your list of dependencies in `mix.exs`:
+
+```elixir
+def deps do
+  [
+    {:moviematch, "~> 0.1.0"}
+  ]
+end
+```
 
 ### Usage
 1. Get IMDB's watchlist movies of user having user_id as ```ur26610840```.
@@ -104,4 +114,3 @@ Movie information if movie not found on YTS
 ```
 %{id: "tt9639470", movie_info: nil, title: "Last Night in Soho"}
 ```
-
